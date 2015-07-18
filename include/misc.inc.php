@@ -373,7 +373,7 @@ class misc {
 			}
 			$count++;
 			// If the last number is a zero, it's divisible by 10 check it...
-			if (eregi("0$", $count)) {
+			if (!($count%10)) {
 				break;
 			}
 		} // end while ($count <= 10)

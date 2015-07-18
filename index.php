@@ -37,7 +37,7 @@ header("Cache-control: private"); //IE6 Form Refresh Fix
 // Make sure install file has been removed
 $filename = dirname(__FILE__) . '/install/index.php';
 if (file_exists($filename)) {
-	//die ('<html><div style="color:red;text-align:center">You must delete the file ' . $filename . ' before you can access your open-realty install.</div></html>');
+	die ('<html><div style="color:red;text-align:center">You must delete the file ' . $filename . ' before you can access your open-realty install.</div></html>');
 }
 // Check for User Selected Language
 if (isset($_POST['select_users_lang'])) {

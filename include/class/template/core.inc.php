@@ -544,7 +544,8 @@ class page {
 		} else if ($_GET['action'] == 'view_listing_image') {
 			if (isset($_GET['image_id'])) {
 				require_once($config['basepath'] . '/include/images.inc.php');
-				$title = image_handler::get_image_caption();
+				$image_handler = new image_handler();
+				$title = $image_handler->get_image_caption();
 				$this->page = str_replace('{load_meta_keywords}', '<meta name="keywords" content="' . $config['seo_default_keywords'] . '" />', $this->page);
 				$this->page = str_replace('{load_meta_description}', '<meta name="description" content="' . $config['seo_default_description'] . '" />', $this->page);
 				$this->page = str_replace('{load_meta_keywords_raw}', $config['seo_default_keywords'], $this->page);

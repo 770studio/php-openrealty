@@ -963,8 +963,8 @@ class listing_pages {
 		require_once($config['basepath'] . '/include/misc.inc.php');
 		$misc = new misc();
 		$sql_listingID = intval($_GET['listingID']);
-		$agentfname=$this->getListingAgentFirstName($sql_listingID);
-		$agentlname=$this->getListingAgentLastName($sql_listingID);
+		$agentfname=static::getListingAgentFirstName($sql_listingID);
+		$agentlname=static::getListingAgentLastName($sql_listingID);
 		if ($url_only == 'no') {
 			if ($config['url_style'] == '1') {
 				$display = '<a href="'.$config['baseurl'].'/index.php?action=contact_agent&amp;popup=yes&amp;listing_id=' . $sql_listingID . '" onclick="window.open(this.href,\'_blank\',\'location=0,status=0,scrollbars=1,toolbar=0,menubar=0,width=500,height=520\');return false">' . $lang['contact_agent'] . '</a>';

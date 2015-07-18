@@ -26,7 +26,7 @@
 
 class login {
 	var $debug;
-	function check_login()
+	public static function check_login()
 	{
 		/* Check if user has been remembered */
 		if (isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])) {
@@ -49,7 +49,7 @@ class login {
 			return false;
 		}
 	}
-	function loginCheck($priv_level_needed, $internal = false)
+	public static function loginCheck($priv_level_needed, $internal = false)
 	{
 		global $conn, $config, $lang;
 		// Load misc Class
@@ -173,7 +173,7 @@ class login {
 			}
 		}
 	}
-	function display_login($priv_level_needed)
+	public static function display_login($priv_level_needed)
 	{
 		// See if we just logged in and redirect.
 		global $config;
@@ -269,7 +269,7 @@ class login {
 			return $display;
 		}
 	}
-	function verify_priv($priv_level_needed)
+	public static function verify_priv($priv_level_needed)
 	{
 		if (!isset($_SESSION['is_member'])) {
 			return false;
@@ -371,8 +371,8 @@ class login {
 				break;
 		} // End switch($priv_level_needed)
 		return false;
-	} // End Function verify_priv()
-	function confirm_user($username, $password)
+	} // End public static Function verify_priv()
+	public static function confirm_user($username, $password)
 	{
 		global $conn, $config, $lang;
 		// Load misc Class
@@ -400,7 +400,7 @@ class login {
 			return 2; //Indicates password failure
 		}
 	}
-	function log_out($type = 'admin')
+	public static function log_out($type = 'admin')
 	{
 		unset($_SESSION['username']);
 		unset($_SESSION['userpassword']);
@@ -439,7 +439,7 @@ class login {
 		}
 		die();
 	}
-	function forgot_password()
+	public static function forgot_password()
 	{
 		global $config, $lang, $conn;
 		$email = $_POST['email'];
@@ -497,7 +497,7 @@ class login {
 			}
 		}
 	}
-	function forgot_password_reset()
+	public static function forgot_password_reset()
 	{
 		global $config, $lang, $conn;
 		$data = '';

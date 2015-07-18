@@ -107,7 +107,7 @@ class mysql_date_ADOConnection extends mysql_date_EXTENDER
 		return adodb_date($this->fmtTimeStamp, $this->UnixTimeStamp($timestamp));
 	}
 
-	function UnixDate($v)
+	public static function UnixDate($v)
 	{
 		if (is_object($v)) {
 		// odbtp support
@@ -128,7 +128,7 @@ class mysql_date_ADOConnection extends mysql_date_EXTENDER
 	}
 	
 
-	function UnixTimeStamp($v)
+	public static function UnixTimeStamp($v)
 	{
 		if (is_object($v)) {
 		// odbtp support

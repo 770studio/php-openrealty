@@ -25,7 +25,7 @@
  */
 
 class propertyclass {
-	function insert_property_class()
+	public static function insert_property_class()
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -98,7 +98,7 @@ class propertyclass {
 		}
 		return $display;
 	}
-	function delete_property_class()
+	public static function delete_property_class()
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -301,7 +301,7 @@ class propertyclass {
 		}
 		return $display;
 	}
-	function modify_property_class()
+	public static function modify_property_class()
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -338,7 +338,7 @@ class propertyclass {
 
 		return $display;
 	}
-	function show_classes()
+	public static function show_classes()
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');

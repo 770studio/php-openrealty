@@ -25,7 +25,7 @@
  */
 // Set Error Handling to E_ALL
 class listing_pages {
-	function renderSingleListingItem($listingID, $name, $display_type = 'both')
+	public static function renderSingleListingItem($listingID, $name, $display_type = 'both')
 	{
 		// Display_type - Sets what should be returned.
 		// both - Displays both the caption and the formated value
@@ -128,7 +128,7 @@ class listing_pages {
 		} // end while
 		return $display;
 	} // end renderSingleListingItem
-	function renderTemplateArea($templateArea, $listingID)
+	public static function renderTemplateArea($templateArea, $listingID)
 	{
 		// renders all the elements in a given template area on the listing pages
 		global $conn, $config, $lang;
@@ -241,7 +241,7 @@ class listing_pages {
 		} // end while
 		return $display;
 	} // end renderTemplateArea
-	function renderTemplateAreaNoCaption($templateArea, $listingID)
+	public static function renderTemplateAreaNoCaption($templateArea, $listingID)
 	{
 		// renders all the elements in a given template area on the listing pages
 		// this time without the corresponding captions
@@ -332,7 +332,7 @@ class listing_pages {
 		} // end while
 		return $display;
 	} // end renderTemplateAreaNoCaption
-	function get_pclass($listing_id)
+	public static function get_pclass($listing_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -371,7 +371,7 @@ class listing_pages {
 		}
 		return $pclass_name_list;
 	}
-	function get_creation_date($listing_id)
+	public static function get_creation_date($listing_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -385,7 +385,7 @@ class listing_pages {
 		$date = $recordSet->UserTimeStamp($recordSet->fields['listingsdb_creation_date'], $config["date_format_timestamp"]);
 		return $date;
 	}
-	function get_modified_date($listing_id)
+	public static function get_modified_date($listing_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -399,7 +399,7 @@ class listing_pages {
 		$date = $recordSet->UserTimeStamp($recordSet->fields['listingsdb_last_modified'], $config["date_format_timestamp"]);
 		return $date;
 	}
-	function get_title($listing_id)
+	public static function get_title($listing_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -413,7 +413,7 @@ class listing_pages {
 		$title = $misc->make_db_unsafe($recordSet->fields['listingsdb_title']);
 		return $title;
 	}
-	function getListingAgentThumbnail($listing_id)
+	public static function getListingAgentThumbnail($listing_id)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -435,7 +435,7 @@ class listing_pages {
 		} // end while
 		return $listing_user_thumnail;
 	}
-	function getListingAgentLink($listingID)
+	public static function getListingAgentLink($listingID)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -464,7 +464,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function getListingAgent($listingID)
+	public static function getListingAgent($listingID)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -485,7 +485,7 @@ class listing_pages {
 		$display .= $listing_user_name;
 		return $display;
 	}
-	function getListingAgentAdminStatus($listingID)
+	public static function getListingAgentAdminStatus($listingID)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -509,7 +509,7 @@ class listing_pages {
 			return false;
 		}
 	}
-	function getListingAgentFirstName($listingID)
+	public static function getListingAgentFirstName($listingID)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -530,7 +530,7 @@ class listing_pages {
 		$display .= $listing_user_name;
 		return $display;
 	}
-	function getListingAgentLastName($listingID)
+	public static function getListingAgentLastName($listingID)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -551,7 +551,7 @@ class listing_pages {
 		$display .= $listing_user_name;
 		return $display;
 	}
-	function getAgentListingsLink($listing_id)
+	public static function getAgentListingsLink($listing_id)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -572,7 +572,7 @@ class listing_pages {
 		$display .= '<a href="'.$config['baseurl'].'/index.php?action=searchresults&amp;user_ID='.$listing_user_ID.'">'.$lang['user_listings_link_text'].'</a>';
 		return $display;
 	}
-	function getListingAgentID($listing_id)
+	public static function getListingAgentID($listing_id)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -811,7 +811,7 @@ class listing_pages {
 		return $display;
 	}
 
-	function listing_view()
+	public static function listing_view()
 	{
 		global $conn, $lang, $config;
 		$display = '';
@@ -881,7 +881,7 @@ class listing_pages {
 			}
 		return $display;
 	}
-	function listing_next_prev()
+	public static function listing_next_prev()
 	{
 		global $config, $lang;
 		$display = '';
@@ -957,7 +957,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function contact_agent_link($url_only = 'no')
+	public static function contact_agent_link($url_only = 'no')
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -980,7 +980,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function create_yahoo_school_link($url_only = 'no')
+	public static function create_yahoo_school_link($url_only = 'no')
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -1036,7 +1036,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function create_yahoo_neighborhood_link($url_only = 'no')
+	public static function create_yahoo_neighborhood_link($url_only = 'no')
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -1083,7 +1083,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function create_email_friend_link($url_only = 'no')
+	public static function create_email_friend_link($url_only = 'no')
 	{
 		global $lang,$config;
 		if ($url_only == 'no') {
@@ -1093,7 +1093,7 @@ class listing_pages {
 			}
 		return $display;
 	}
-	function create_printer_friendly_link($url_only = 'no')
+	public static function create_printer_friendly_link($url_only = 'no')
 	{
 		global $lang,$config;
 		if (isset($_GET['listingID'])) {
@@ -1124,7 +1124,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function create_calc_link($url_only = 'no')
+	public static function create_calc_link($url_only = 'no')
 	{
 		global $lang,$config;
 		if ($url_only == 'no') {
@@ -1134,7 +1134,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function create_add_favorite_link($url_only = 'no')
+	public static function create_add_favorite_link($url_only = 'no')
 	{
 		global $lang,$current_ID,$config;
 		$list_id=0;
@@ -1149,7 +1149,7 @@ class listing_pages {
 		}
 		return $display;
 	}
-	function checkActive($listingID)
+	public static function checkActive($listingID)
 	{
 		// checks whether a given listing is active
 		global $conn, $lang, $config;
@@ -1206,7 +1206,7 @@ class listing_pages {
 
 		return $show_listing;
 	} // end function checkActive
-	function getListingEmail($listingID,$value_only=false)
+	public static function getListingEmail($listingID,$value_only=false)
 	{
 		// get the email address for the person who posted a listing
 		global $conn, $lang, $config;
@@ -1229,8 +1229,8 @@ class listing_pages {
 		$display = "<b>$lang[user_email]:</b> <a href=\"mailto:$listing_emailAddress\">$listing_emailAddress</a><br />";
 		}
 		return $display;
-	} // function getMainListingData
-	function hitcount($listingID)
+	} // public static function getMainListingData
+	public static function hitcount($listingID)
 	{
 		// counts hits to a given listing
 		global $conn, $lang, $config;
@@ -1255,7 +1255,7 @@ class listing_pages {
 		return $hitcount;
 	} // end function hitcount
 
-	function edit_listing_link($url_only = 'no')
+	public static function edit_listing_link($url_only = 'no')
 	{
 		global $lang,$config,$current_ID;
 		$display = '';
@@ -1286,7 +1286,7 @@ class listing_pages {
 		return $display;
 	} // end function edit_listing_link
 
-	function get_featured($listing_id, $raw)
+	public static function get_featured($listing_id, $raw)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');

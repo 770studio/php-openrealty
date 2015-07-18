@@ -31,7 +31,7 @@
  * @copyright Copyright (c) 2005
  */
 class user {
-	function get_agent_link($agentID){
+	public static function get_agent_link($agentID){
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
 		$misc = new misc();
@@ -53,7 +53,7 @@ class user {
 	 * @param  $type
 	 * @return
 	 */
-	function view_users()
+	public static function view_users()
 	{
 		global $conn, $config, $lang,$agent_id;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -154,7 +154,7 @@ class user {
 		$page->page = str_replace('{next_prev}', $next_prev, $page->page);
 		return $page->page;
 	}
-	function view_user()
+	public static function view_user()
 	{
 		global $conn, $lang, $config, $user;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -253,7 +253,7 @@ class user {
 
 		return $display;
 	}
-	function userListings($user)
+	public static function userListings($user)
 	{
 		// produces the rest of the listings for users
 		global $conn, $config, $lang;
@@ -286,8 +286,8 @@ class user {
 		}
 
 		return $display;
-	} // end function userListings
-	function userHitcount($user)
+	} // end public static function userListings
+	public static function userHitcount($user)
 	{
 		// hit counter for user listings
 		global $conn, $config, $lang;
@@ -310,8 +310,8 @@ class user {
 			$recordSet->MoveNext();
 		} // end while
 		return $display;
-	} // end function userHitcount
-	function get_user_name($user)
+	} // end public static function userHitcount
+	public static function get_user_name($user)
 	{
 		// grabs the main info for a given user
 		global $conn, $config, $lang;
@@ -332,9 +332,9 @@ class user {
 		} // end while
 		$display .= $name;
 		return $display;
-	} // function getMainListingData
+	} // public static function getMainListingData
 	//Get User Type
-	function get_user_type($user)
+	public static function get_user_type($user)
 	{
 		// grabs the main info for a given user
 		global $conn, $config, $lang;
@@ -363,7 +363,7 @@ class user {
 
 	}
 
-	function get_user_first_name($user)
+	public static function get_user_first_name($user)
 	{
 		// grabs the main info for a given user
 		global $conn, $config, $lang;
@@ -384,8 +384,8 @@ class user {
 		} // end while
 		$display .= $name;
 		return $display;
-	} // function getMainListingData
-	function get_user_last_name($user)
+	} // public static function getMainListingData
+	public static function get_user_last_name($user)
 	{
 		// grabs the main info for a given user
 		global $conn, $config, $lang;
@@ -406,8 +406,8 @@ class user {
 		} // end while
 		$display .= $name;
 		return $display;
-	} // function getMainListingData
-	function contact_agent_link($userID)
+	} // public static function getMainListingData
+	public static function contact_agent_link($userID)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -416,7 +416,7 @@ class user {
 		$display = '<a href="index.php?action=contact_agent&amp;popup=yes&amp;agent_id=' . $userID . '" onclick="window.open(this.href,\'_blank\',\'location=0,status=0,scrollbars=1,toolbar=0,menubar=0,width=500,height=520\');return false">' . $lang['contact_agent'] . '</a>';
 		return $display;
 	}
-	function renderUserInfo($user)
+	public static function renderUserInfo($user)
 	{
 		global $conn, $config, $lang;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -490,7 +490,7 @@ class user {
 		} // end while
 		return $display;
 	} // end renderUserInfo
-	function determine_user_formtype($userID)
+	public static function determine_user_formtype($userID)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -510,7 +510,7 @@ class user {
 		}
 		return $formDB;
 	}
-	function renderSingleListingItem($userID, $name, $display_type = 'both')
+	public static function renderSingleListingItem($userID, $name, $display_type = 'both')
 	{
 		// Display_type - Sets what should be returned.
 		// both - Displays both the caption and the formated value
@@ -605,14 +605,14 @@ class user {
 		} // end while
 		return $display;
 	} // end renderSingleListingItem
-	function vcard_agent_link($user)
+	public static function vcard_agent_link($user)
 	{
 		global $lang;
 		$display = '';
 		$display.='<a href="index.php?action=create_vcard&amp;user='.$user.'">'.$lang['vcard_link_text'].'</a>';
 		return $display;
 	}// end vcard_agent_link
-	function create_vcard($user)
+	public static function create_vcard($user)
 	{
 		global $config, $conn;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -690,7 +690,7 @@ class user {
 		Header("Connection: close");
 		Header("Content-Type: text/x-vCard; name=$filename");
 	}// end create_vcard
-	function userListingsLink($user)
+	public static function userListingsLink($user)
 	{
 		global $lang;
 		$display = '';

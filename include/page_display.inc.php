@@ -25,7 +25,7 @@
  */
 // Set Error Handling to E_ALL
 class page_display {
-	function get_page_title($page_id)
+	public static function get_page_title($page_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -40,7 +40,7 @@ class page_display {
 		$title = $misc->make_db_unsafe($recordSet->fields['pagesmain_title']);
 		return $title;
 	}
-	function get_page_description($page_id)
+	public static function get_page_description($page_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -58,7 +58,7 @@ class page_display {
 			return '';
 		}
 	}
-	function get_page_keywords($page_id)
+	public static function get_page_keywords($page_id)
 	{
 		global $conn, $config;
 		require_once($config['basepath'] . '/include/misc.inc.php');

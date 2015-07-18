@@ -26,7 +26,7 @@
 // Set Error Handling to E_ALL
 class vtours {
 
-	function show_vtour($listingID, $popup = true)
+	public static function show_vtour($listingID, $popup = true)
 	{
 		global $lang, $conn, $config, $jscript;
 		require_once($config['basepath'] . '/include/misc.inc.php');
@@ -390,10 +390,10 @@ class vtours {
 			$display .= "<a href=\"index.php\">$lang[perhaps_you_were_looking_something_else]</a>";
 		}
 		return $display;
-	} // end function showvtour
+	} // end public static function showvtour
 
 
-	function rendervtourlink($listingID, $use_small_image = false)
+	public static function rendervtourlink($listingID, $use_small_image = false)
 	{
 		// shows the images connected to a given image
 		global $config, $lang, $conn;
@@ -429,9 +429,9 @@ class vtours {
 			} //end if it's a supported VTour
 		} // end if ($num_images > 0)
 		return $output;
-	} // end function rendervtourlink
+	} // end public static function rendervtourlink
 
-	function goodvtour($listingID)
+	public static function goodvtour($listingID)
 	{
 		global $lang, $conn, $config, $jscript;
 		require_once($config['basepath'] . '/include/misc.inc.php');
